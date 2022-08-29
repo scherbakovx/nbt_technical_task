@@ -5,6 +5,7 @@ services:
   web:
     build: .
     command: bash -c "gunicorn -t 60 -b 0.0.0.0:8000 --log-level=DEBUG nbt_technical_task.wsgi"
+    env_file: .db_env
     ports:
       - "8000:8000"
     depends_on:
@@ -13,7 +14,7 @@ services:
       - ./nbt_technical_task:/src
 
   db:
-    # platform: linux/amd64
+    platform: linux/amd64  # I need to specify this because of Apple M1-machine
     image: "postgres:14.5"
     env_file: .db_env
     volumes:
