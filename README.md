@@ -8,7 +8,8 @@
 
 ### Notes:
 1. Simple API description is available at `http://127.0.0.1:8000/swagger-ui/`
-2. In task description second model called Sensor, in model description it's Device :)
+2. DRF interface as `http://127.0.0.1:8000`
+3. In task description second model called Sensor, in model description it's Device :)
 
 
 ### What would I've done next:
@@ -17,3 +18,4 @@
 3. Close views and docs for logged-in users
 4. Fill Swagger with more data and examples of query parameters
 5. Add validators for `data` in Measurement
+6. Remove .db_env from repo :)
