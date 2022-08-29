@@ -1,5 +1,3 @@
-import coreapi
-import coreschema
 import logging
 
 from django.utils import dateparse
@@ -10,10 +8,6 @@ from django.db.models.fields.json import KeyTextTransform
 from rest_framework import mixins, viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from rest_framework.schemas import AutoSchema
-
-from drf_yasg.utils import swagger_auto_schema
-from drf_yasg import openapi
 
 from api.models import Company, Device, Measurement
 from api.serializers import CompanySerializer, DeviceSerializer, MeasurementSerializer
@@ -33,9 +27,6 @@ class DeviceViewset(viewsets.ModelViewSet):
     model = Device
     queryset = Device.objects.all()
     serializer_class = DeviceSerializer
-
-    def list(self, request, *args, **kwargs):
-        return super().list(request, *args, **kwargs)
 
     def filter_queryset(self, queryset):
 

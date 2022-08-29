@@ -31,7 +31,6 @@ class Command(BaseCommand):
 
             Device.objects.create(company=company, active=active, device_id=device_id, labels=labels)
 
-
         for i in range(150):
             device = Device.objects.order_by('?').first()
             date = fake.date_time(tzinfo=fake.pytimezone())

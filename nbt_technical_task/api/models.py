@@ -18,10 +18,10 @@ class Company(models.Model):
 class Device(models.Model):
 
     device_id = models.CharField(primary_key=True,
-                                unique=True,
+                                 unique=True,
                                  null=False,
                                  blank=False,
-                                 max_length=255,
+                                 max_length=26,
                                  validators=[
                                      RegexValidator(regex='^[a-zA-Z]{3}-\d{8}-\d{4}-\d{6}$',
                                                     message='Custom Device PK (ex. nrf-12312980-3138-123123)',
@@ -43,5 +43,5 @@ class Device(models.Model):
 class Measurement(models.Model):
 
     device = models.ForeignKey(Device, to_field='device_id', on_delete=models.CASCADE)
-    date = models.DateTimeField()
+    date = models.DateTimeField(null=False)
     data = models.JSONField(default=dict)

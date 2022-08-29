@@ -27,22 +27,14 @@ from api.urls import router as api_router
 router = DefaultRouter()
 router.registry.extend(api_router.registry)
 
-
 urlpatterns = [
     path('', include(router.urls)),
-
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-
-    path('openapi', get_schema_view(
-        title="NBT Test Task",
-        description="JSON API",
-        version="1.0.0"
-    ), name='openapi-schema'),
-
-    path('swagger-ui/', TemplateView.as_view(
-        template_name='swagger-ui.html',
-        extra_context={'schema_url': 'openapi-schema'}
-    ), name='swagger-ui'),
-
+    path('openapi',
+         get_schema_view(title="NBT Test Task", description="JSON API", version="1.0.0"),
+         name='openapi-schema'),
+    path('swagger-ui/',
+         TemplateView.as_view(template_name='swagger-ui.html', extra_context={'schema_url': 'openapi-schema'}),
+         name='swagger-ui'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
