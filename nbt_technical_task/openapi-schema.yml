@@ -1,0 +1,443 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /companies/:
+    get:
+      operationId: listCompanys
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Company'
+          description: ''
+      tags:
+      - companies
+    post:
+      operationId: createCompany
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Company'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Company'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Company'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+          description: ''
+      tags:
+      - companies
+  /companies/{id}/:
+    get:
+      operationId: retrieveCompany
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this company.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+          description: ''
+      tags:
+      - companies
+    put:
+      operationId: updateCompany
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this company.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Company'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Company'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Company'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+          description: ''
+      tags:
+      - companies
+    patch:
+      operationId: partialUpdateCompany
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this company.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Company'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Company'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Company'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+          description: ''
+      tags:
+      - companies
+    delete:
+      operationId: destroyCompany
+      description: ''
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this company.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - companies
+  /devices/:
+    get:
+      operationId: listDevices
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Device'
+          description: ''
+      tags:
+      - devices
+    post:
+      operationId: createDevice
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Device'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Device'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Device'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+          description: ''
+      tags:
+      - devices
+  /devices/{device_id}/:
+    get:
+      operationId: retrieveDevice
+      description: ''
+      parameters:
+      - name: device_id
+        in: path
+        required: true
+        description: A unique value identifying this device.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+          description: ''
+      tags:
+      - devices
+    put:
+      operationId: updateDevice
+      description: ''
+      parameters:
+      - name: device_id
+        in: path
+        required: true
+        description: A unique value identifying this device.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Device'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Device'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Device'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+          description: ''
+      tags:
+      - devices
+    patch:
+      operationId: partialUpdateDevice
+      description: ''
+      parameters:
+      - name: device_id
+        in: path
+        required: true
+        description: A unique value identifying this device.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Device'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Device'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Device'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+          description: ''
+      tags:
+      - devices
+    delete:
+      operationId: destroyDevice
+      description: ''
+      parameters:
+      - name: device_id
+        in: path
+        required: true
+        description: A unique value identifying this device.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - devices
+  /measurements/:
+    get:
+      operationId: listMeasurements
+      description: ''
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=4
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?page=2
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Measurement'
+          description: ''
+      tags:
+      - measurements
+    post:
+      operationId: createMeasurement
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Measurement'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Measurement'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Measurement'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Measurement'
+          description: ''
+      tags:
+      - measurements
+  /measurements/average_temperatures/:
+    get:
+      operationId: averageTemperaturesMeasurement
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Measurement'
+          description: ''
+      tags:
+      - measurements
+components:
+  schemas:
+    Company:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        location:
+          type: string
+          maxLength: 255
+      required:
+      - name
+      - location
+    Device:
+      type: object
+      properties:
+        device_id:
+          type: string
+          pattern: ^[a-zA-Z]{3}-\d{8}-\d{4}-\d{6}$
+          maxLength: 255
+        company:
+          type: integer
+        active:
+          type: boolean
+        labels:
+          type: array
+          items:
+            type: string
+      required:
+      - device_id
+      - company
+    Measurement:
+      type: object
+      properties:
+        device:
+          type: string
+        date:
+          type: string
+          format: date-time
+        data:
+          type: object
+      required:
+      - device
+      - date

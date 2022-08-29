@@ -1,0 +1,3 @@
+POSTGRES_USER=anton
+POSTGRES_DB=nbt_2
+POSTGRES_PASSWORD=here_is_simple_pass
