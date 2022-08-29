@@ -10,8 +10,7 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
@@ -25,9 +24,22 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Device',
             fields=[
-                ('device_id', models.CharField(max_length=255, primary_key=True, serialize=False, unique=True, validators=[django.core.validators.RegexValidator(code='invalid_device_id', message='Device ID (ex. nrf-12312980-3138-123123)', regex='^[a-zA-Z]{3}-\\d{8}-\\d{4}-\\d{6}$')])),
+                ('device_id',
+                 models.CharField(max_length=255,
+                                  primary_key=True,
+                                  serialize=False,
+                                  unique=True,
+                                  validators=[
+                                      django.core.validators.RegexValidator(
+                                          code='invalid_device_id',
+                                          message='Device ID (ex. nrf-12312980-3138-123123)',
+                                          regex='^[a-zA-Z]{3}-\\d{8}-\\d{4}-\\d{6}$')
+                                  ])),
                 ('active', models.BooleanField(default=False)),
-                ('labels', django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=255), default=list, size=None)),
+                ('labels',
+                 django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=255),
+                                                           default=list,
+                                                           size=None)),
                 ('company', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='api.company')),
             ],
         ),
