@@ -53,12 +53,12 @@ class MeasurementViewset(viewsets.GenericViewSet, mixins.CreateModelMixin, mixin
         if company_id := self.request.GET.get('company_id'):
             queryset = queryset.filter(device__company_id=company_id)
 
-        # before=2003-06-29T11:00:00+00:00
+        # ex. before=2003-06-29T11:00:00+00:00
         if before_string := self.request.GET.get('before'):
             before_datetime = dateparse.parse_datetime(before_string.replace(" ", "+"))
             queryset = queryset.filter(date__lte=before_datetime)
 
-        # after=1983-06-29T11:00:00+00:00
+        # ex. after=1983-06-29T11:00:00+00:00
         if after_string := self.request.GET.get('after'):
             after_datetime = dateparse.parse_datetime(after_string.replace(" ", "+"))
             queryset = queryset.filter(date__gte=after_datetime)

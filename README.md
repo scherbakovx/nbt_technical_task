@@ -19,3 +19,4 @@
 4. Fill Swagger with more data and examples of query parameters
 5. Add validators for `data` in Measurement
 6. Remove .db_env from repo :)
+7. Write some tests at least about `average_temperatures`

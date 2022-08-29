@@ -416,7 +416,7 @@ components:
         device_id:
           type: string
           pattern: ^[a-zA-Z]{3}-\d{8}-\d{4}-\d{6}$
-          maxLength: 255
+          maxLength: 26
         company:
           type: integer
         active:
